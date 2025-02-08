@@ -1,0 +1,23 @@
+.game-cards {
+  /* margin-top: 20px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.random-card {
+  margin-top: 2%;
+}
+
+.game-card-descr {
+  text-align: center;
+  margin-top: 5%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #646cff;
+  transition: color 0.3s;
+}
+
+

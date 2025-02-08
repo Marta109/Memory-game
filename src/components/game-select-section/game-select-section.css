@@ -1,0 +1,16 @@
+.select-wrapper {
+  margin-top: 10px;
+  /* color: #f1f5fd; */
+  text-align: left;
+}
+
+.select-wrapper label {
+  margin: 10px;
+  font-weight: bold;
+  color: #181616;
+}
+
+
+.select-wrapper option{
+    text-transform: capitalize;
+}

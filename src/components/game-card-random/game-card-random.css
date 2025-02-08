@@ -1,0 +1,51 @@
+@keyframes flip-in {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+.random-card-item {
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: capitalize;
+  opacity: 0;
+  transform: rotateY(90deg);
+  animation: flip-in 1s ease forwards;
+}
+
+.random-card-item .card {
+  /* cursor: not-allowed; */
+  position: relative;
+  margin: 10px auto;
+  width: 18rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #646cff;
+  border: 5px solid #646cff;
+}
+
+.random-card-item img {
+  height: 200px;
+}
+
+.random-card-item .card-body {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: #646cff;
+  background-color: rgba(41, 44, 50, 0.9);
+  margin: 0 auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+.random-card-item .card:hover .card-body {
+  opacity: 1;
+  visibility: visible;
+}
