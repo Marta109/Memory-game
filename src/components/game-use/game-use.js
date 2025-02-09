@@ -9,29 +9,29 @@ const useGame = () => {
   const [startGame, setStartGame] = useState(false);
   const [gameLevel, setGameLevel] = useState("3");
   const [gameSection, setGameSection] = useState(null);
+  const [loading, setLoading] = useState(true);
   const handleLogin = (username) => {
     setLogin(username);
   };
 
   useEffect(() => {
     if (!startGame) return;
-    ImageApi.getImages(gameSection).then((data) => {
-      setAllData(data);
-      setScore(0);
-      setData(allData.slice(0, 3));
-    });
+    setLoading(true);
+    ImageApi.getImages(gameSection)
+      .then((data) => {
+        const currentData = data.splice(0, 3);
+        setAllData([...data, ...data]);
+        setScore(0);
+        setGameLevel(3);
+        setData(currentData);
+      })
+      .finally(() => setLoading(false));
   }, [gameSection]);
 
   useEffect(() => {
-    // if (+gameLevel === 3) return;
-    // const itemsPerLevel = gameLevel;
+    if (!allData) return;
 
-    // const startIndex = gameLevel === 3 || gameLevel === 10 ? 0 : gameLevel;
-
-    // setData(allData.slice(startIndex, startIndex + itemsPerLevel));
-    setData(allData.slice(0, gameLevel));
-    // console.log("startIndex=", startIndex);
-    // console.log("last=", startIndex + itemsPerLevel);
+    setData(allData.splice(0, gameLevel));
   }, [gameLevel]);
 
   const handleStartGame = () => {
@@ -39,7 +39,6 @@ const useGame = () => {
   };
 
   const handleGameMode = (mode) => {
-    console.log(mode);
     setGameSection(mode);
   };
 
@@ -48,9 +47,6 @@ const useGame = () => {
     setGameLevel((prevLevel) => (+prevLevel < 10 ? +prevLevel + 1 : 10));
     setScore(0);
   };
-
-  console.log(allData);
-  console.log(data);
 
   return {
     login: {
@@ -65,14 +61,16 @@ const useGame = () => {
       onSelect: handleGameMode,
     },
 
-    score: {
+    game: {
       current: score,
       level: gameLevel,
       allScore: gameLevel,
+      loading,
       gameSection,
       data,
       setScore,
       nextGame: handleNextGame,
+      onSelect: handleGameMode,
     },
   };
 };

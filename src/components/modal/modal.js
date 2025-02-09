@@ -2,18 +2,23 @@ import { useState, useEffect } from "react";
 import Button from "../game-button/game-button";
 import useSound, { stopSound } from "../game-sounds/game-sounds";
 import "./modal.css";
+import SelectSection from "../game-select-section/game-select-section";
 
 const Modal = ({
   showModal,
+  section,
   score,
   allScore,
   gameSection,
   level,
   nextGame,
+  onSelect,
   setShowModal,
   setOpenModal,
+  setSection,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [newSection, setNewSection] = useState();
 
   useEffect(() => {
     setIsOpen(showModal);
@@ -23,16 +28,50 @@ const Modal = ({
     setIsOpen(false);
     setShowModal(false);
     stopSound();
-    setOpenModal(true);
+    if (!section) {
+      setOpenModal(true);
+    }
+    setSection(false);
   };
 
-  const handleNextGame = () => {
+  const handleClick = () => {
+    if (section) {
+      onSelect(newSection);
+    } else {
+      nextGame();
+    }
     closeModal();
-    nextGame();
+    setSection(false);
     setOpenModal(false);
   };
 
-  const levelStatus = level <= 5 ? "Easy" : level >= 7 ? "Medium" : "Hard";
+  const levelStatus = level < 5 ? "Easy" : level > 7 ? "Medium" : "Hard";
+
+  let modalContent = (
+    <div className="modal-body">
+      <p className="user-score">
+        Your score: {score} / {allScore}✨
+      </p>
+      <p>
+        Level: {levelStatus} - {level}
+      </p>
+      <p>Game Section: {gameSection}</p>
+    </div>
+  );
+  if (allScore === 10) {
+    modalContent = (
+      <div className="modal-body">
+        <h1 className="game-won">
+          <br />
+          You've reached the highest score possible! 🎉 You've won the game! ✨
+        </h1>
+      </div>
+    );
+  }
+
+  if (section) {
+    modalContent = <SelectSection onSelect={setNewSection} />;
+  }
 
   return (
     <div className="game-modal">
@@ -43,7 +82,13 @@ const Modal = ({
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h4 className="modal-title">Congratulations Game over!🎉</h4>
+              <h4 className="modal-title">
+                {" "}
+                {!section
+                  ? "Congratulations Game over!🎉"
+                  : "Select new section"}
+              </h4>
+
               <button
                 type="button"
                 className="btn-close"
@@ -51,30 +96,21 @@ const Modal = ({
                 aria-label="Close"
               ></button>
             </div>
-            {allScore === 10 ? (
-              <h1>
-                <br />
-                You've reached the highest score possible! 🎉 You've won the
-                game! ✨
-              </h1>
-            ) : (
-              <div className="modal-body">
-                <p className="user-score">
-                  Your score: {score} / {allScore}✨
-                </p>
-                <p>
-                  Level: {levelStatus} - {level}
-                </p>
-                <p>Game Section: {gameSection}</p>
-              </div>
-            )}
+            {modalContent}
             <div className="modal-footer">
-              <Button name="close" type="button" onClick={closeModal} />
               <Button
-                name="next game"
+                name="close"
                 type="button"
-                classes={allScore === 10 ? "btn-disabled" : ""}
-                onClick={handleNextGame}
+                onClick={closeModal}
+                classes="modal-btn"
+              />
+              <Button
+                name={!section ? "next game" : "change section"}
+                type="button"
+                classes={
+                  allScore === 10 ? "btn-disabled modal-btn" : "modal-btn"
+                }
+                onClick={handleClick}
               />
             </div>
           </div>

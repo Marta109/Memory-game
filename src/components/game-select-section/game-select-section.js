@@ -1,6 +1,21 @@
 import { useState } from "react";
 import "./game-select-section.css";
 const SelectSection = ({ options, onSelect }) => {
+  if (!options) {
+    options = {
+      label: "Which category would you like to play with?",
+      selectedOption: "Select a category to begin.",
+      values: [
+        "animal",
+        "galaxy",
+        "flower",
+        "nature",
+        "fantasy",
+        "musical instrument",
+      ],
+    };
+  }
+  
   const { label, selectedOption, values } = options;
   const [selectedValue, setSelectedValue] = useState(values[0]);
 

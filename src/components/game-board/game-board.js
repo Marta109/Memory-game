@@ -3,32 +3,26 @@ import GameCardWrapper from "../game-card-wrapper/game-card-wrapper";
 import Header from "../game-header/game-header";
 import Modal from "../modal/modal";
 import Timer from "../timer/timer";
+import Spinner from "../spinner/spinner";
 import "./game-board.css";
 
 const GameBoard = ({
-  score: { current, allScore, gameSection, level, setScore, data, nextGame },
+  game: {
+    current,
+    allScore,
+    gameSection,
+    level,
+    setScore,
+    data,
+    nextGame,
+    onSelect,
+    loading,
+  },
 }) => {
   const [openModal, setOpenModal] = useState(false);
   const [showTimer, setShowTimer] = useState();
   const [showModal, setShowModal] = useState(false);
-
-
-  // useEffect(() => {
-  //   if (openModal) {
-  //     setShowModal(true);
-  //   }
-  // }, [openModal]);
-
-  // useEffect(() => {
-  //   setShowModal(isOpenModal);
-  // }, [isOpenModal]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowTimer(false);
-  //   }, 10000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  const [section, setSection] = useState(false);
 
   useEffect(() => {
     setShowTimer(true);
@@ -41,17 +35,6 @@ const GameBoard = ({
 
   return (
     <div className="game-board">
-      <Modal
-        showModal={showModal}
-        score={current}
-        allScore={allScore}
-        level={level}
-        gameSection={gameSection}
-        nextGame={nextGame}
-        openModal={openModal}
-        setShowModal={setShowModal}
-        setOpenModal={setOpenModal}
-        />
       <Header
         score={current}
         allScore={allScore}
@@ -60,15 +43,37 @@ const GameBoard = ({
         openModal={openModal}
         setShowModal={setShowModal}
         setOpenModal={setOpenModal}
+        setSection={setSection}
       />
-      <div className="board-grid">
-        {showTimer && <Timer />}
-        <GameCardWrapper
-          setScore={setScore}
+      <div className="game-board-container">
+        <Modal
+          showModal={showModal}
+          section={section}
           score={current}
-          data={data}
-          modal={setShowModal}
+          allScore={allScore}
+          level={level}
+          gameSection={gameSection}
+          nextGame={nextGame}
+          openModal={openModal}
+          onSelect={onSelect}
+          setShowModal={setShowModal}
+          setOpenModal={setOpenModal}
+          setSection={setSection}
         />
+
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="board-grid">
+            {showTimer && <Timer />}
+            <GameCardWrapper
+              setScore={setScore}
+              score={current}
+              data={data}
+              modal={setShowModal}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

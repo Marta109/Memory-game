@@ -1,6 +1,6 @@
 .header-wrapper {
-  /* width: 100%; */
-  margin: 0 15px;
+  /* width: 90%; */
+  margin: 10px 15px;
   border-radius: 10px;
   box-shadow: 0 0 20px #646cff;
   border: 5px solid #646cff;
@@ -11,12 +11,34 @@
 .header-descr {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 10px;
+}
+
+.header-descr-main{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
   justify-content: space-around;
+  gap: 30px;
 }
 
 .header-wrapper p {
   text-transform: capitalize;
   font-size: 24px;
+  margin-top: 15px;
+  color: #fefeff;
+}
+
+.btn-header {
+  padding: 10px;
+  width: auto;
+  height: auto;
+}
+
+.btn-header.sound {
+  width: 50px;
 }
 
 .btn-header i {

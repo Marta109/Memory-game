@@ -8,7 +8,7 @@ function App() {
   const {
     login: { isLogin, handleLogin },
     welcome,
-    score,
+    game,
   } = useGame();
   return (
     <div className="App">
@@ -17,7 +17,7 @@ function App() {
       ) : !welcome.startGame ? (
         <Welcome welcome={welcome} />
       ) : (
-        <GameBoard score={score} />
+        <GameBoard game={game} />
       )}
     </div>
   );

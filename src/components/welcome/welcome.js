@@ -6,22 +6,8 @@ import "./welcome.css";
 const Welcome = ({ welcome: { user, start, onSelect } }) => {
   const [select, setSelectedValue] = useState("animal");
   const handleStartGame = () => {
-    console.log("select=", select);
     onSelect(select);
     start();
-  };
-
-  const options = {
-    label: "Which category would you like to play with?",
-    selectedOption: "Select a category to begin.",
-    values: [
-      "animal",
-      "galaxy",
-      "flower",
-      "nature",
-      "fantasy",
-      "musical instrument",
-    ],
   };
 
   return (
@@ -39,7 +25,7 @@ const Welcome = ({ welcome: { user, start, onSelect } }) => {
           <br />
           Ready to start🌠?
           <br />
-          <SelectSection options={options} onSelect={setSelectedValue} />
+          <SelectSection onSelect={setSelectedValue} />
         </div>
         <Button name={"start game"} type="button" onClick={handleStartGame} />
       </div>

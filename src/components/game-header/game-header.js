@@ -8,12 +8,12 @@ const Header = ({
   gameSection,
   level,
   openModal,
-  setOpenModal,
+  setSection,
   setShowModal,
 }) => {
   const [isMuted, setIsMuted] = useState(false);
 
-  const levelStatus = level <= 5 ? "Easy" : level >= 7 ? "Medium" : "Hard";
+  const levelStatus = level < 5 ? "Easy" : level > 7 ? "Medium" : "Hard";
 
   const handelSound = () => {
     toggleMute();
@@ -25,23 +25,23 @@ const Header = ({
     // setOpenModal(true);
   };
 
+  const handelSelect = () => {
+    setShowModal(true);
+    setSection(true);
+  };
+
   return (
     <header>
       <div className="card header-wrapper">
         <div className="card-header">
-          <div className="header-descr">
+          <div className="header-descr-main">
             <Button
               type="button"
-              name={
-                !isMuted ? (
-                  <i className="fa-solid fa-volume-high"></i>
-                ) : (
-                  <i className="fa-solid fa-volume-mute"></i>
-                )
-              }
-              onClick={handelSound}
+              name="change section"
               classes="btn-header"
+              onClick={handelSelect}
             />
+
             <h1 className="card-title">Memory Game</h1>
             <Button
               type="button"
@@ -59,6 +59,18 @@ const Header = ({
             <p className="card-score">
               Score: {score} / {allScore}
             </p>
+            <Button
+              type="button"
+              name={
+                !isMuted ? (
+                  <i className="fa-solid fa-volume-high"></i>
+                ) : (
+                  <i className="fa-solid fa-volume-mute"></i>
+                )
+              }
+              onClick={handelSound}
+              classes="btn-header sound"
+            />
           </div>
         </div>
       </div>
