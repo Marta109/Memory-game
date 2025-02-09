@@ -84,13 +84,9 @@ const GameCardWrapper = ({ setScore, data, modal }) => {
       <div className="game-cards">{elements}</div>
       {randomCard === "" ? (
         ""
-      ) : randomCard ? (
+      ) : (
         <div className="random-card">
           <RandomCard cardData={randomCard} />
-        </div>
-      ) : (
-        <div className="game-card-descr">
-          Remember the contents of the cards!
         </div>
       )}
     </div>

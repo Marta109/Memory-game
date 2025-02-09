@@ -49,3 +49,14 @@
   opacity: 1;
   visibility: visible;
 }
+
+@media screen and (max-width: 830px) {
+  .random-card-item .card {
+    width: 15rem;
+  }
+}
+@media screen and (max-width: 760px) {
+  .random-card-item .card {
+    width: 13rem;
+  }
+}

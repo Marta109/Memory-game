@@ -65,7 +65,14 @@ const GameBoard = ({
           <Spinner />
         ) : (
           <div className="board-grid">
-            {showTimer && <Timer />}
+            {showTimer && (
+              <>
+                <Timer />
+                <div className="game-card-descr">
+                  Remember the contents of the cards!
+                </div>
+              </>
+            )}
             <GameCardWrapper
               setScore={setScore}
               score={current}

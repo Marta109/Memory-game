@@ -15,6 +15,7 @@
 .welcome-container h1 {
   font-size: 50px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #ffc107;
   /* color: #181616; */
 }
 
@@ -40,4 +41,35 @@
   font-size: 20px;
   margin: 20px 0;
   padding: 20px;
+}
+
+@media screen and (max-width: 795px) {
+  .welcome {
+    margin: 20px;
+    width: 600px;
+  }
+
+  .welcome-container h1 {
+    font-size: 40px;
+  }
+
+  .welcome-container h2 {
+    font-size: 25px;
+  }
+
+  .game-descr {
+    font-size: 18px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .welcome {
+    padding: 20px;
+    width: 80%;
+  }
+
+  .game-descr {
+    text-align: justify;
+  }
 }

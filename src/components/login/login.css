@@ -5,13 +5,14 @@
   box-shadow: 0 0 20px #646cff;
   border: 5px solid #646cff;
   background-color: #292c32;
-  color: #646cff;
+  /* color: #646cff; */
   font-size: 18px;
   /* color:black */
+  color: #ffc107;
 }
 
 .game-login .title {
-  color: #f1f5fd;
+  color: #ffc107;
   /* font-size: 20px; */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -23,4 +24,15 @@
 .login-input input {
   border: 3px solid #646cff;
   /* background-color: #03071e; */
+}
+
+@media screen and (max-width: 830px) {
+  .game-login {
+    margin: 10px 40px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .game-login .card-body {
+    padding: 20px !important;
+  }
 }

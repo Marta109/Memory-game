@@ -8,6 +8,11 @@
   color: #646cff;
 }
 
+.header-wrapper .card-title {
+  color: #ffc107;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .header-descr {
   display: flex;
   align-items: center;
@@ -16,7 +21,7 @@
   margin-top: 10px;
 }
 
-.header-descr-main{
+.header-descr-main {
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -49,4 +54,25 @@
 .btn-disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+@media screen and (max-width: 960px) {
+  .header-descr p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .header-descr {
+    justify-content: space-around;
+    gap: 5px;
+  }
+  
+  .header-descr p {
+    font-size: 18px;
+  }
+
+  .btn-header.sound i {
+    font-size: 18px;
+  }
 }

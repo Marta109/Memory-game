@@ -1,7 +1,7 @@
 .game-cards {
   /* margin-top: 20px; */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
@@ -13,11 +13,19 @@
 
 .game-card-descr {
   text-align: center;
-  margin-top: 5%;
+  margin-top: -30px;
+  margin-bottom: 30px;
   font-size: 24px;
   font-weight: bold;
-  color: #646cff;
+  color: #ffc107;
   transition: color 0.3s;
+  /* margin-bottom: 30px; */
 }
 
 
+@media screen and (max-width: 760px) {
+  .game-cards{
+    padding: 5px;
+    gap: 10px;
+  }
+}

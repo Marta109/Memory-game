@@ -35,7 +35,9 @@ const Modal = ({
   };
 
   const handleClick = () => {
-    if (section) {
+    if (allScore === 10) {
+      onSelect("fantasy");
+    } else if (section) {
       onSelect(newSection);
     } else {
       nextGame();
@@ -61,10 +63,11 @@ const Modal = ({
   if (allScore === 10) {
     modalContent = (
       <div className="modal-body">
-        <h1 className="game-won">
+        <h4 className="game-won">
           <br />
-          You've reached the highest score possible! 🎉 You've won the game! ✨
-        </h1>
+          You've reached the highest score possible! <br /> You've won the game!
+          🎉✨
+        </h4>
       </div>
     );
   }
@@ -105,11 +108,15 @@ const Modal = ({
                 classes="modal-btn"
               />
               <Button
-                name={!section ? "next game" : "change section"}
-                type="button"
-                classes={
-                  allScore === 10 ? "btn-disabled modal-btn" : "modal-btn"
+                name={
+                  section
+                    ? "change section"
+                    : allScore === 10
+                    ? "new game"
+                    : "next game"
                 }
+                type="button"
+                classes="modal-btn"
                 onClick={handleClick}
               />
             </div>

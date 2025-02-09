@@ -45,7 +45,7 @@
 }
 
 .game-card-item.hidden .card {
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
 .game-card-item.hidden:before {
@@ -125,7 +125,7 @@
 
 .game-card-item .card {
   position: relative;
-  width: 18rem;
+  width: 16rem;
   border: none;
   background: #1b253a;
   color: #646cff;
@@ -135,7 +135,6 @@
 .game-card-item img {
   height: 200px;
   object-fit: fill;
-  border-radius: 10px;
 }
 
 .game-card-item .card-body {
@@ -155,3 +154,26 @@
   opacity: 1;
   visibility: visible;
 }
+
+@media screen and (max-width: 830px) {
+  .game-card-item .card,
+  .game-card-item.hidden .card {
+    width: 15rem;
+  }
+}
+
+
+@media screen and (max-width: 760px) {
+  .game-card-item .card,
+  .game-card-item.hidden .card {
+    width: 12rem;
+  }
+}
+@media screen and (max-width: 670px) {
+  .game-card-item .card,
+  .game-card-item.hidden .card {
+    width: 11rem;
+  }
+}
+
+

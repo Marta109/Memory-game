@@ -11,7 +11,7 @@
 .game-modal .modal-title {
   font-weight: bold;
   text-align: center;
-  color: #f1f5fd;
+  color: #ffc107;
   /* font-size: 20px; */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -22,6 +22,7 @@
 }
 
 .game-modal .user-score {
+  color: #ffc107;
   font-weight: bold;
   margin-top: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -42,7 +43,7 @@
 }
 
 .game-won{
-  text-align: center;
+  text-align: left;
 }
 .modal-btn{
   height: auto;
@@ -51,5 +52,5 @@
   font-size: 18px;
 }
 .modal-dialog{
-  margin-top: 15%;
+  margin-top: 10%;
 }
