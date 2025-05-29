@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+## 🧠 Memory Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Interactive memory challenge** built with **React**.  
+Sharpen your attention and short-term memory in this dynamic guessing game.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### 🎮 How It Works
 
-### `npm start`
+1. **Select a Category**  
+   Choose from various themes like:  
+   🐾 Animals | 🌸 Flowers | 🎵 Musical Instruments ...and more.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Memorize the Cards**  
+   You get **10 seconds** to memorize the layout of images.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Guess the Positions**  
+   One image is shown — pick the correct location from memory.  
+   💡 Hover over any card to see a **description** of the image.
 
-### `npm test`
+4. **Difficulty Increases Over Time**  
+   The number of cards grows each round (3 → 4 → 5...)  
+   ⏱️ Time remains fixed — only **10 seconds** to memorize!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **Dynamic Content from API**  
+   Images are fetched **randomly** from an external API — every game feels fresh.
 
-### `npm run build`
+6. **Sound effects 🎶 ** 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🔗 Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Live Demo:** [Play the Game](https://marta109.github.io/Memory-game/)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🖼️ Screenshots
+![Screenshot_4](https://github.com/user-attachments/assets/8339ba4e-7e00-4c76-880e-d30bc5b52c5f)
+![Screenshot_3](https://github.com/user-attachments/assets/038af86e-65fa-4086-861f-cff28c289c74)
+![Screenshot_1](https://github.com/user-attachments/assets/d5787751-69fe-47a3-bdfc-3c904fdfcc75)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### ⚙️ Technologies Used
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React (CRA)
+- JavaScript (ES6+)
+- CSS Modules
+- External API for image fetching
+- React Hooks (useState, useEffect)
